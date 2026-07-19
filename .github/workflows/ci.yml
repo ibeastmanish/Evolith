@@ -1,0 +1,64 @@
+name: Evolith CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - name: Install uv
+      run: curl -LsSf https://astral.sh/uv/install.sh | sh
+    - name: Install dependencies
+      working-directory: ./backend
+      run: uv sync
+    - name: Lint with Ruff
+      working-directory: ./backend
+      run: uv run ruff check .
+    - name: Run Pytest
+      working-directory: ./backend
+      run: PYTHONPATH=. uv run pytest
+
+  studio-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    - name: Install dependencies
+      working-directory: ./studio
+      run: npm ci
+    - name: Lint
+      working-directory: ./studio
+      run: npm run lint
+    - name: Test
+      working-directory: ./studio
+      run: npm run test
+
+  evolith-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    - name: Install dependencies
+      working-directory: ./evolith
+      run: npm ci
+    - name: Lint
+      working-directory: ./evolith
+      run: npm run lint
+    - name: Test
+      working-directory: ./evolith
+      run: npm run test

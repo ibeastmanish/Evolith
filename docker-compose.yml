@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5.20.0
+    container_name: evolith-neo4j
+    ports:
+      - "7474:7474" # HTTP Browser
+      - "7687:7687" # Bolt protocol
+    environment:
+      - NEO4J_AUTH=neo4j/evolith_secret
+      - NEO4J_PLUGINS=["apoc"] # We will likely need APOC for graph algorithms later
+      - NEO4J_dbms_memory_heap_max__size=1G
+    volumes:
+      - neo4j_data:/data
+    restart: unless-stopped
+
+volumes:
+  neo4j_data:

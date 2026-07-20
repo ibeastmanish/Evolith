@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Play, Pause, FastForward, Rewind } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { Play, Pause } from "lucide-react";
 import { useStore } from "@/store/useStore";
 import { milestones } from "@/lib/mock-data";
 import { nodeColors } from "@/lib/constants";
@@ -55,7 +55,7 @@ export default function TimeMachine() {
     return () => {
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
-  }, [isPlaying, playbackSpeed, setCurrentYear]);
+  }, [isPlaying, playbackSpeed, setCurrentYear, setIsPlaying]);
 
   /* ── Sync scroll position with currentYear (when not dragging) ── */
   useEffect(() => {

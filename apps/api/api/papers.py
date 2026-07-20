@@ -4,13 +4,11 @@ Anti Gravity — Papers API
 Endpoints for importing and managing papers.
 """
 
-from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
+from fastapi import APIRouter, HTTPException, BackgroundTasks
 from pydantic import BaseModel
 from typing import List, Optional
 import uuid
 from models import Paper
-from database import get_db
-from sqlalchemy.orm import Session
 # In a real app we'd map Pydantic <-> SQLAlchemy models. 
 # For MVP, we'll store simple records in a SQLite table or just return mocks if the DB isn't fully scaffolded.
 # Let's assume a simplified mock flow for the frontend to work immediately.

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useEffect, useRef, useMemo } from "react";
@@ -8,10 +9,9 @@ import { nodeColors, edgeColors, type EdgeType } from "@/lib/constants";
 
 interface KnowledgeUniverseProps {
   data: { nodes: any[]; edges: any[] };
-  focusNodeId?: string;
 }
 
-export default function KnowledgeUniverse({ data, focusNodeId }: KnowledgeUniverseProps) {
+export default function KnowledgeUniverse({ data }: KnowledgeUniverseProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<PIXI.Application | null>(null);
   const simulationRef = useRef<any>(null);

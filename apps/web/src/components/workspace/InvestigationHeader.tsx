@@ -15,7 +15,6 @@ function AnimatedScore({ target }: { target: number }) {
   useEffect(() => {
     const duration = 1200;
     const steps = 40;
-    const increment = target / steps;
     let step = 0;
 
     const timer = setInterval(() => {

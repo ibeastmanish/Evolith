@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Search, Bell, Sparkles } from "lucide-react";
 import { useStore } from "@/store/useStore";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -25,14 +26,14 @@ export default function TopNav() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2.5 group">
+        <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-7 h-7 rounded-[8px] ev-gradient-accent flex items-center justify-center">
             <Sparkles size={14} className="text-white" />
           </div>
           <span className="font-semibold text-[15px] text-[var(--ev-text)] tracking-tight">
             {SITE_CONFIG.name}
           </span>
-        </a>
+        </Link>
 
         {/* Center — Investigation trigger */}
         <button

@@ -1,5 +1,5 @@
-from neo4j import GraphDatabase, AsyncGraphDatabase
-from typing import List, Dict, Any, Optional
+from neo4j import GraphDatabase
+from typing import List, Dict, Any
 import os
 
 from schema.models import KnowledgeNode, TemporalEdge

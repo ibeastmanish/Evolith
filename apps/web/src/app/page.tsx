@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, ArrowRight, Shuffle } from "lucide-react";
+import { Search, Shuffle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import HeroBackground from "@/components/landing/HeroBackground";
 import TopNav from "@/components/observatory/TopNav";
@@ -49,8 +49,11 @@ function AnimatedPlaceholder() {
         const timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 25);
         return () => clearTimeout(timeout);
       } else {
-        setIndex((i) => (i + 1) % placeholders.length);
-        setTyping(true);
+        const timeout = setTimeout(() => {
+          setIndex((i) => (i + 1) % placeholders.length);
+          setTyping(true);
+        }, 300);
+        return () => clearTimeout(timeout);
       }
     }
   }, [displayed, typing, index]);

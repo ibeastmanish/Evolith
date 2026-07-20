@@ -5,10 +5,8 @@ Parses raw paper text into structured data and ontology nodes.
 """
 
 from pydantic import BaseModel, Field
-from typing import Optional
 from agents.base import BaseAgent
 from config import settings
-from models import Paper
 
 class ExtractedMetadata(BaseModel):
     title: str

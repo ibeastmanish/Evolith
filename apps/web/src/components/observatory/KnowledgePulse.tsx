@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, TrendingUp, BookOpen, FlaskConical } from "lucide-react";
 import Link from "next/link";
 import Card from "@/components/ui/Card";
-import { evolutionChains, milestones, nodeColors, type NodeType } from "@/lib/mock-data";
+import { evolutionChains } from "@/lib/mock-data";
 
 interface KnowledgePulseCardProps {
   chain: typeof evolutionChains[number];

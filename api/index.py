@@ -12,7 +12,7 @@ async def app(scope, receive, send):
         # Forward the ASGI request to FastAPI
         await fastapi_app(scope, receive, send)
         
-    except Exception as e:
+    except Exception:
         # If the backend crashes during boot, catch it and return the traceback 
         # so we can see exactly what failed in the browser!
         if scope["type"] == "http":

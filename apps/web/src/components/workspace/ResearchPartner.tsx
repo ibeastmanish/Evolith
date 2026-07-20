@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Send, Brain, Sparkles, MessageSquare, Plus, ArrowRight, X } from "lucide-react";
+import { Send, Brain, Sparkles, Plus, ArrowRight, X } from "lucide-react";
 import { useStore } from "@/store/useStore";
 import type { KnowledgeNode } from "@/lib/mock-data";
 
@@ -18,7 +18,7 @@ interface Message {
 }
 
 export default function ResearchPartner({ topicNode }: ResearchPartnerProps) {
-  const { togglePartner, setSelectedNodeId, setCommandPaletteOpen } = useStore();
+  const { togglePartner, setSelectedNodeId } = useStore();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "init",

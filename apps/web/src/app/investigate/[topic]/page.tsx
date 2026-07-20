@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useCallback } from "react";
+import { useEffect, useMemo } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import TopNav from "@/components/observatory/TopNav";
@@ -60,12 +61,12 @@ export default function InvestigationPage() {
           <p className="text-sm text-[var(--ev-text-tertiary)] mb-6">
             Become the first contributor to chart this territory.
           </p>
-          <a
+          <Link
             href="/"
             className="text-sm text-[var(--ev-accent)] hover:text-[var(--ev-accent-hover)] transition-colors"
           >
             ← Return to Observatory
-          </a>
+          </Link>
         </div>
       </main>
     );
@@ -99,7 +100,6 @@ export default function InvestigationPage() {
                 >
                   <KnowledgeUniverse
                     data={visibleData}
-                    focusNodeId={topicId}
                   />
                 </motion.div>
               )}
@@ -115,7 +115,6 @@ export default function InvestigationPage() {
                   <div className="flex-1">
                     <KnowledgeUniverse
                       data={visibleData}
-                      focusNodeId={topicId}
                     />
                   </div>
                 </motion.div>

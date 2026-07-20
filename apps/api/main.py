@@ -4,7 +4,7 @@ Anti Gravity — Main API Gateway
 Routes requests to sub-modules and initializes systems.
 """
 
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import settings

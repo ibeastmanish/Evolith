@@ -6,7 +6,7 @@ Generates evidence-backed hypotheses using Discovery Mode.
 
 from agents.base import BaseAgent
 from config import settings
-from models import Hypothesis, DiscoveryScore, Evidence
+from models import Hypothesis, DiscoveryScore
 import uuid
 
 HYPOTHESIS_PROMPT = """
@@ -27,7 +27,6 @@ class HypothesisAgent(BaseAgent):
 
     async def generate_hypothesis(self, objective: str, graph_context: str) -> Hypothesis:
         """Generates a structured hypothesis."""
-        prompt = f"Objective: {objective}\n\nGraph Context:\n{graph_context}"
         
         # In MVP we'll mock the complex Hypothesis generation to save tokens/time,
         # but in production we'd use response_format=Hypothesis (which requires careful prompt engineering

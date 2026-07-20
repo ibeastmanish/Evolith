@@ -4,7 +4,7 @@ Anti Gravity — Verification Agent
 Cross-checks facts against the Knowledge Graph and RAG pipeline.
 """
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import List
 from agents.base import BaseAgent
 from config import settings

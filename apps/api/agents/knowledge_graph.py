@@ -7,7 +7,6 @@ Retrieves subgraphs and answers queries by directly interfacing with Neo4j.
 from agents.base import BaseAgent
 from config import settings
 from database import Neo4jConnection
-import json
 
 KG_PROMPT = """
 You are the Anti Gravity Knowledge Graph Agent.

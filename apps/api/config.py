@@ -28,10 +28,10 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL: str = "text-embedding-3-small"
     
     # ChromaDB (Vector Store)
-    CHROMA_PERSIST_DIR: str = "./data/chroma"
+    CHROMA_PERSIST_DIR: str = "/tmp/chroma" if __import__("os").environ.get("VERCEL") else "./data/chroma"
     
     # SQLite (Sessions, Projects)
-    SQLITE_URL: str = "sqlite:///./data/antigravity.db"
+    SQLITE_URL: str = "sqlite:////tmp/antigravity.db" if __import__("os").environ.get("VERCEL") else "sqlite:///./data/antigravity.db"
     
     # CORS
     CORS_ORIGINS: list[str] = [

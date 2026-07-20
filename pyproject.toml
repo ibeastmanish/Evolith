@@ -10,3 +10,6 @@ members = [
     "apps/api",
     "packages/*"
 ]
+
+[tool.vercel]
+entrypoint = "apps.api.main:app"

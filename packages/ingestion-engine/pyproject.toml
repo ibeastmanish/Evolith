@@ -1,0 +1,22 @@
+[project]
+name = "ingestion-engine"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "IBEASTMANISH", email = "MANISHTULA7777@GMAIL.COM" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "httpx>=0.28.1",
+    "knowledge-engine",
+    "schema",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.12,<0.11.0"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+schema = { workspace = true }
+knowledge-engine = { workspace = true }

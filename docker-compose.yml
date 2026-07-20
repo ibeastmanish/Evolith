@@ -9,11 +9,32 @@ services:
       - "7687:7687" # Bolt protocol
     environment:
       - NEO4J_AUTH=neo4j/evolith_secret
-      - NEO4J_PLUGINS=["apoc"] # We will likely need APOC for graph algorithms later
+      - NEO4J_PLUGINS=["apoc"]
       - NEO4J_dbms_memory_heap_max__size=1G
     volumes:
       - neo4j_data:/data
     restart: unless-stopped
 
+  postgres:
+    image: postgres:15-alpine
+    container_name: evolith-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=evolith
+      - POSTGRES_PASSWORD=evolith_secret
+      - POSTGRES_DB=evolith
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: evolith-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
 volumes:
   neo4j_data:
+  postgres_data:

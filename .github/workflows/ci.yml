@@ -18,14 +18,11 @@ jobs:
     - name: Install uv
       run: curl -LsSf https://astral.sh/uv/install.sh | sh
     - name: Install dependencies
-      working-directory: ./backend
       run: uv sync
     - name: Lint with Ruff
-      working-directory: ./backend
       run: uv run ruff check .
     - name: Run Pytest
-      working-directory: ./backend
-      run: PYTHONPATH=. uv run pytest
+      run: PYTHONPATH=apps/api uv run pytest apps/api/tests
 
   studio-tests:
     runs-on: ubuntu-latest
@@ -54,11 +51,11 @@ jobs:
       with:
         node-version: '20'
     - name: Install dependencies
-      working-directory: ./evolith
+      working-directory: ./apps/web
       run: npm ci
     - name: Lint
-      working-directory: ./evolith
+      working-directory: ./apps/web
       run: npm run lint
     - name: Test
-      working-directory: ./evolith
+      working-directory: ./apps/web
       run: npm run test
